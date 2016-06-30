@@ -1985,6 +1985,7 @@ function $translate($STORAGE_KEY, $windowProvider, $translateSanitizationProvide
         if (!$translationTable[key] && $loaderFactory && !langPromises[key]) {
           langPromises[key] = loadAsync(key).then(function (translation) {
             translations(translation.key, translation.table);
+            return translation;
           });
         }
       };
